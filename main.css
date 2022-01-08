@@ -43,3 +43,7 @@ li {
 }
 
 .btn:focus { outline-style: none; }
+
+.landingpage-grid {
+    display: grid;
+}
