@@ -47,3 +47,31 @@ li {
 .landingpage-grid {
     display: grid;
 }
+
+.column {
+  float: left;
+  width: 30%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+/* This is the start of the Breakfast Section*/
+
+img {
+  filter: none;
+  /* Firefox 3.5+ */
+  filter: none;
+  /* IE6-9 */
+  -webkit-filter: none;
+  /* Google Chrome & Safari 6+ */
+}
+img:hover {
+  filter: blur(4px);
+}
