@@ -8,34 +8,40 @@
         <p>This healthy smoothie recipe is packed with protein, fiber, unsaturated fats, and essential vitamins and minerals.</p>
         <img src="../recipe-pictures/almond-butter-smoothie.png" alt="almond-butter-smoothie">
         <h3>Ingredients</h3>
-            <p>Below is a list of required ingredients:</p>
-            <div id="checkbox">
-            <ul style="list-style: none;">
-                <li><input type="checkbox" id="toggle-me">
-                <label for="checkbox">banana</label></li>
-                
-                <li><input type="checkbox" id="toggle-me"/>
-                <label for="checkbox">0.5 cup mangos</label></li>
+            <script type="text/JavaScript" src="../app.js"></script>
+                <p>Below is a list of required ingredients:</p>
+                    <form action="../shopping-list.html" method="POST">
+                        <div id="checkbox">
+                            <ul style="list-style: none;">
+                                <li><input type="checkbox" id="toggle-me">
+                                <label for="checkbox">banana</label></li>
+                                
+                                <li><input type="checkbox" id="toggle-me"/>
+                                <label for="checkbox">0.5 cup mangos</label></li>
 
-                <li><input type="checkbox" id="toggle-me">
-                <label for="checkbox">0.5 cup strawberries</label></li>
+                                <li><input type="checkbox" id="toggle-me">
+                                <label for="checkbox">0.5 cup strawberries</label></li>
 
-                <li><input type="checkbox" id="toggle-me"/>
-                <label for="checkbox">0.25 cup 2% plain Greek yogurt</label></li>
-                
-                <li><input type="checkbox" id="toggle-me">
-                <label for="checkbox">1 tbsp almond butter</label></li>
+                                <li><input type="checkbox" id="toggle-me"/>
+                                <label for="checkbox">0.25 cup 2% plain Greek yogurt</label></li>
+                                
+                                <li><input type="checkbox" id="toggle-me">
+                                <label for="checkbox">1 tbsp almond butter</label></li>
 
-                <li><input type="checkbox" id="toggle-me">
-                <label for="checkbox">0.25 cup baby spinach</label></li>
+                                <li><input type="checkbox" id="toggle-me">
+                                <label for="checkbox">0.25 cup baby spinach</label></li>
 
-                <li><input type="checkbox" id="toggle-me">
-                <label for="checkbox">0.5 cup unsweetened almond milk</label></li>
+                                <li><input type="checkbox" id="toggle-me">
+                                <label for="checkbox">0.5 cup unsweetened almond milk</label></li>
 
-                <li><input type="checkbox" id="toggle-me">
-                <label for="checkbox">ginger</label></li>
-            </ul>
-            </div>
+                                <li><input type="checkbox" id="toggle-me">
+                                <label for="checkbox">ginger</label></li>
+                            </ul>
+                            <input type="button" id="ReserveerButton1" value="save" onclick="save()"/>
+                            <input type="button" id="Wisbutton1" value="delete" onclick="wis()"/>
+                            <input type="checkbox" id="checkbox">1e film van de dag</input>
+                        </div>
+                </form>
         <h3>How to make!</h3>
             <p>Place all ingredients in a blender; process until smooth.</p>
     </div>
