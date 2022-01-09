@@ -9,14 +9,43 @@
         <img src="../recipe-pictures/warm-panzanella.jpg" alt="warm-panzanella">
         <h3>Ingredients</h3>
             <p>Below is a list of required ingredients:</p>
-            <ul>
-                <li>1 cup almond milk (or more if needed to blend)</li>
-                <li>1 tbsp chia seeds</li>
-                <li>1 cup spinach (not packed down)</li>
-                <li>2 bananas, frozen</li>
-                <li>1 cup mango (fresh or frozen)</li>
+            <ul style="list-style: none;">
+                <li><input type="checkbox" id="wp-Tomato cherry 300g" />Tomato cherry 300g</li>
+                <li><input type="checkbox" id="wp-Onion red 1/2 whole" />Onion red 1/2 whole</li>
+                <li><input type="checkbox" id="wp-Capsicum red 4" />Capsicum red 4</li>
+                <li><input type="checkbox" id="wp-Sourdough" />Sourdough</li>
+                <li><input type="checkbox" id="wp-Olive oil 1 tbsp" />Olive oil 1 tbsp</li>
+                <li><input type="checkbox" id="wp-Parsley 50g" />Parsley 50g</li>
+                <li><input type="checkbox" id="wp-Sea salt 1/2 tsp" />Sea salt 1/2 tsp</li>
             </ul>
+            <input type="button" value="Save" onclick="save();" />
+            <script>
+                window.onload= function(){
+                    var list = document.querySelectorAll(`[type*="checkbox"]`);
+                            list.forEach( el => {
+                                var checked = JSON.parse(localStorage.getItem(el.id));
+                                 document.getElementById(el.id).checked = checked;
+                            });
+                        }
+                save = function(){
+                    var list = document.querySelectorAll(`[type*="checkbox"]`);
+                    list.forEach( el => {
+                        localStorage.setItem(el.id, el.checked);
+                        console.log(el.id,el.checked);
+                    })
+                
+                }
+            </script>
         <h3>How to make!</h3>
-            <p>Place all ingredients in a blender; process until smooth.</p>
+        <ol>
+            <li><input type="checkbox">Pre-heat the oven to 200c.</li>
+            <li><input type="checkbox">Arrange the tomatoes, red onion, capsicum, and bread in an ovenproof dish,then bake inthe oven for 15 minutes.</li>
+            <li><input type="checkbox">Remove from the oven and drizzle with extra olive oil. Season with salt and pepper, toss, then scatter with parsley.</li>
+            </ol>
+        <h3>Tip</h3>
+        <p>Remove bread slices that are mostly destined for the bin in this warming salad.</p>
+        <form action="../index.html">
+            <input type="submit" value="Home Page" />
+        </form>
     </div>
 

@@ -9,15 +9,54 @@
         <img src="../recipe-pictures/potato-squash-gnocchi-pesto.jpg" alt="potato-squash-gnocchi-pesto">
         <h3>Ingredients</h3>
             <p>Below is a list of required ingredients:</p>
-            <ul>
-                <li>1 cup almond milk (or more if needed to blend)</li>
-                <li>1 tbsp chia seeds</li>
-                <li>1 cup spinach (not packed down)</li>
-                <li>2 bananas, frozen</li>
-                <li>1 cup mango (fresh or frozen)</li>
+            <p><b>Gnocchi</b></p>
+            <ul style="list-style: none;">
+                <li><input type="checkbox" id="psgp-Potato 750g" />Potato 750g</li>
+                <li><input type="checkbox" id="psgp-Butternut Squash 500g" />Butternut Squash 500g</li>
+                <li><input type="checkbox" id="psgp-Olive oil 2 tbsp" />Olive oil 2 tbsp</li>
+                <li><input type="checkbox" id="psgp-Plain flour 1 cup" />Plain flour 1 cup</li>
             </ul>
+            <p><b>Pesto Trapanese</b></p>
+            <ul style="list-style: none;">
+                <li><input type="checkbox" id="psgp-Tomato 3" />Tomato 3</li>
+                <li><input type="checkbox" id="psgp-Garlic clove 4" />Garlic clove 4</li>
+                <li><input type="checkbox" id="psgp-Basil 50g" />Basil 50g</li>
+                <li><input type="checkbox" id="psgp-Almonds blanced 1 cup" />Almonds blanced 1 cup</li>
+                <li><input type="checkbox" id="psgp-Olive oil 2/3 cup" />Olive oil 2/3 cup</li>
+            </ul>
+            <input type="button" value="Save" onclick="save();" />
+            <script>
+                window.onload= function(){
+                    var list = document.querySelectorAll(`[type*="checkbox"]`);
+                            list.forEach( el => {
+                                var checked = JSON.parse(localStorage.getItem(el.id));
+                                 document.getElementById(el.id).checked = checked;
+                            });
+                        }
+                save = function(){
+                    var list = document.querySelectorAll(`[type*="checkbox"]`);
+                    list.forEach( el => {
+                        localStorage.setItem(el.id, el.checked);
+                        console.log(el.id,el.checked);
+                    })
+                
+                }
+            </script>
         <h3>How to make!</h3>
-            <p>Place all ingredients in a blender; process until smooth.</p>
+        <ol>
+            <li><input type="checkbox">Pre-heat the oven to 200c.</li>
+            <li><input type="checkbox">First, make the pesto. Place all the ingredients in a food processor and blend until finely chopped. Alternatively, finely chop all the ingredients by hand, and stir everything together to give a chunk sauce. Season and set aside.</li>
+            <li><input type="checkbox">To make the gnocci, price the potatoes two or three times with a fork ad bake in oven for about 35 minutes to 1 hour, or until tender.</li>
+            <li><input type="checkbox">Place the butternut squash cubes on a baking track, add the olive oil and a pinch of salt and toss well. Add to the oven and roast for 30-40minutes or until very tender.</li>
+            <li><input type="checkbox">When the potatoes are cool enough to handle, but still warm, peel off the skins, drop into a large bowl and mash well until smooth. Add the cooked squash to the bowl with the potato and mash well once more.</li>
+            <li><input type="checkbox">Beat in the flour a little at a time. Stop adding flour when the mixture is smooth and slightly sticky. Season with salt.</li>
+            <li><input type="checkbox">Turn the mixture out onto a floured board and roll out into cylinders about 34cm long with a 2cm diameter. Cut each roll into 3cm lengths.</li>
+            <li><input type="checkbox">Taking one piece at a time, press the gnocchi onto a floured fork. Roll each piece slightly while pressing it along the pronts and flip it off the fork onto a floured plate.</li>
+            <li><input type="checkbox">Bring a large pan of water to the boil and rop in 20-25 pieces of gnocchi at a time. They will rise to the surfaec very quickly. Let them cook for 10-15seconds more. lift them out with a slotted spoon and keep them warm while you continue with the remaining gnocchi.</li>
+        </ol>
+        <h3>Tip</h3>
+        <p>pending.</p>
+        <form action="../index.html">
+            <input type="submit" value="Home Page" />
+        </form>
     </div>
-
-
