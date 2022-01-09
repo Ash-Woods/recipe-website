@@ -9,14 +9,36 @@
         <img src="../recipe-pictures/oatmeal-smoothie.png" alt="oatmeal-smoothie">
         <h3>Ingredients</h3>
             <p>Below is a list of required ingredients:</p>
-            <ul>
-                <li>1 medium frozen banana</li>
-                <li>1 cup frozen strawberries</li>
-                <li>2 tablespoons rolled oatmeal</li>
-                <li>1 scoop of protein powder</li>
-                <li>1 tablespoon all-natural creamy peanut butter</li>
-                <li>½ cup unsweetened almond milk</li>
+            <ul style="list-style: none;">
+                <li><input type="checkbox" id="os-Banana" />Banana</li>
+                <li><input type="checkbox" id="os-Strawberries 1 cup" />Strawberries 1 cup</li>
+                <li><input type="checkbox" id="os-Rolled oatmeal 2 tbsp" />Rolled oatmeal 2 tbsp</li>
+                <li><input type="checkbox" id="os-Peanut butter 1 tbsp" />Peanut butter 1 tbsp</li>
+                <li><input type="checkbox" id="os-Unsweetened oat milk 1/2 cup" />Unsweetened oat milk 1/2 cup</li>
             </ul>
+            <input type="button" value="Save" onclick="save();" />
+            <script>
+                window.onload= function(){
+                    var list = document.querySelectorAll(`[type*="checkbox"]`);
+                            list.forEach( el => {
+                                var checked = JSON.parse(localStorage.getItem(el.id));
+                                 document.getElementById(el.id).checked = checked;
+                            });
+                        }
+                save = function(){
+                    var list = document.querySelectorAll(`[type*="checkbox"]`);
+                    list.forEach( el => {
+                        localStorage.setItem(el.id, el.checked);
+                        console.log(el.id,el.checked);
+                    })
+                
+                }
+            </script>
         <h3>How to make!</h3>
-            <p>Place all ingredients in a blender; process until smooth.</p>
+        <ol>
+            <li><input type="checkbox">Place all ingredients in a blender; process until smooth.</li>
+        </ol>
+        <form action="../index.html">
+            <input type="submit" value="Home Page" />
+        </form>
     </div>

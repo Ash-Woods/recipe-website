@@ -1,1 +1,67 @@
-<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <h3>Ingredients</h3>
+    <p>Below is a list of required ingredients:</p>
+        <ul style="list-style: none;" id="shopping-list-li">
+            <li><input type="checkbox" id="abs-Banana" />Banana</li>
+            <li><input type="checkbox" id="abs-Mangos 1/2 cup" />Mangos 1/2 cup</li>
+            <li><input type="checkbox" id="abs-Strawberries 1/2 cup" />Strawberries 1/2 cup</li>
+            <li><input type="checkbox" id="abs-Plain Greek yogurt 1/4 cup"/>Plain Greek yogurt 1/4 cup</li>
+            <li><input type="checkbox" id="abs-Almond butter 1 tbsp"/>Almond butter 1 tbsp</li>
+            <li><input type="checkbox" id="abs-Baby spinach 1/4 cup"/>Baby spinach 1/4 cup</li>
+            <li><input type="checkbox" id="abs-Unsweetened oat milk 1/2 cup"/>Unsweetened oat milk 1/2 cup</li>
+            <li><input type="checkbox" id="abs-Ginger 10g"/>Ginger 10g</li>
+            <li><input type="checkbox" id="os-Banana" />Banana</li>
+            <li><input type="checkbox" id="os-Strawberries 1 cup" />Strawberries 1 cup</li>
+            <li><input type="checkbox" id="os-Rolled oatmeal 2 tbsp" />Rolled oatmeal 2 tbsp</li>
+            <li><input type="checkbox" id="os-Peanut butter 1 tbsp" />Peanut butter 1 tbsp</li>
+            <li><input type="checkbox" id="os-Unsweetened oat milk 1/2 cup" />Unsweetened oat milk 1/2 cup</li>
+            <li><input type="checkbox" id="gbs-Unsweetened oat milk 1 cup" />Unsweetened oat milk 1 cup</li>
+            <li><input type="checkbox" id="gbs-Chia seeds 1 tbsp" />Chia seeds 1 tbsp</li>
+            <li><input type="checkbox" id="gbs-Baby spinach 1 cup" />Baby spinach 1 cup</li>
+            <li><input type="checkbox" id="gbs-Banana" />Banana</li>
+            <li><input type="checkbox" id="gbs-Mango 1 cup" />Mango 1 cup</li>
+        </ul>
+        <input type="button" value="Save" onclick="save();" />
+        <script>
+            window.onload= function(){
+                var list = document.querySelectorAll(`[type*="checkbox"]`);
+                        list.forEach( el => {
+                            var checked = JSON.parse(localStorage.getItem(el.id));
+                             document.getElementById(el.id).checked = checked;
+                        });
+                    }
+            save = function(){
+                var list = document.querySelectorAll(`[type*="checkbox"]`);
+                list.forEach( el => {
+                    localStorage.setItem(el.id, el.checked);
+                    console.log(el.id,el.checked);
+                })
+            
+            }
+        </script>
+
+<script>
+    function sortList(ul) {
+  var ul = document.getElementById(ul);
+
+  Array.from(ul.getElementsByTagName("LI"))
+    .sort((a, b) => a.textContent.localeCompare(b.textContent))
+    .forEach(li => ul.appendChild(li));
+}
+
+sortList("shopping-list-li");
+</script>
+
+
+
+    <div> 
+        <p>Once you have everything, you can return home using the below button.</p>
+        <form action="index.html">
+            <input type="submit" value="Home Page" />
+        </form>
+    </div>
+</body>
+</html>

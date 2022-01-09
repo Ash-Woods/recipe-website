@@ -8,40 +8,41 @@
         <p>This healthy smoothie recipe is packed with protein, fiber, unsaturated fats, and essential vitamins and minerals.</p>
         <img src="../recipe-pictures/almond-butter-smoothie.png" alt="almond-butter-smoothie">
         <h3>Ingredients</h3>
-            <script type="text/JavaScript" src="../app.js"></script>
-                <p>Below is a list of required ingredients:</p>
-                    <form action="../shopping-list.html" method="POST">
-                        <div id="checkbox">
-                            <ul style="list-style: none;">
-                                <li><input type="checkbox" id="toggle-me">
-                                <label for="checkbox">banana</label></li>
-                                
-                                <li><input type="checkbox" id="toggle-me"/>
-                                <label for="checkbox">0.5 cup mangos</label></li>
-
-                                <li><input type="checkbox" id="toggle-me">
-                                <label for="checkbox">0.5 cup strawberries</label></li>
-
-                                <li><input type="checkbox" id="toggle-me"/>
-                                <label for="checkbox">0.25 cup 2% plain Greek yogurt</label></li>
-                                
-                                <li><input type="checkbox" id="toggle-me">
-                                <label for="checkbox">1 tbsp almond butter</label></li>
-
-                                <li><input type="checkbox" id="toggle-me">
-                                <label for="checkbox">0.25 cup baby spinach</label></li>
-
-                                <li><input type="checkbox" id="toggle-me">
-                                <label for="checkbox">0.5 cup unsweetened almond milk</label></li>
-
-                                <li><input type="checkbox" id="toggle-me">
-                                <label for="checkbox">ginger</label></li>
-                            </ul>
-                            <input type="button" id="ReserveerButton1" value="save" onclick="save()"/>
-                            <input type="button" id="Wisbutton1" value="delete" onclick="wis()"/>
-                            <input type="checkbox" id="checkbox">1e film van de dag</input>
-                        </div>
-                </form>
+            <p>Below is a list of required ingredients:</p>
+                <ul style="list-style: none;">
+                    <li><input type="checkbox" id="abs-Banana" />Banana</li>
+                    <li><input type="checkbox" id="abs-Mangos 1/2 cup" />Mangos 1/2 cup</li>
+                    <li><input type="checkbox" id="abs-Strawberries 1/2 cup" />Strawberries 1/2 cup</li>
+                    <li><input type="checkbox" id="abs-Plain Greek yogurt 1/4 cup"/>Plain Greek yogurt 1/4 cup</li>
+                    <li><input type="checkbox" id="abs-Almond butter 1 tbsp"/>Almond butter 1 tbsp</li>
+                    <li><input type="checkbox" id="abs-Baby spinach 1/4 cup"/>Baby spinach 1/4 cup</li>
+                    <li><input type="checkbox" id="abs-Unsweetened oat milk 1/2 cup"/>Unsweetened oat milk 1/2 cup</li>
+                    <li><input type="checkbox" id="abs-Ginger 10g"/>Ginger 10g</li>
+                </ul>
+                            <input type="button" value="Save" onclick="save();" />
+    </div>
+            <script>
+                window.onload= function(){
+                    var list = document.querySelectorAll(`[type*="checkbox"]`);
+                            list.forEach( el => {
+                                var checked = JSON.parse(localStorage.getItem(el.id));
+                                 document.getElementById(el.id).checked = checked;
+                            });
+                        }
+                save = function(){
+                    var list = document.querySelectorAll(`[type*="checkbox"]`);
+                    list.forEach( el => {
+                        localStorage.setItem(el.id, el.checked);
+                        console.log(el.id,el.checked);
+                    })
+                
+                }
+            </script>
         <h3>How to make!</h3>
-            <p>Place all ingredients in a blender; process until smooth.</p>
+            <ol>
+                <li><input type="checkbox">Place all ingredients in a blender; process until smooth.</li>
+            </ol>
+            <form action="../index.html">
+                <input type="submit" value="Home Page" />
+            </form>
     </div>

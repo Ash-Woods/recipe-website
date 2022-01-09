@@ -9,13 +9,36 @@
         <img src="../recipe-pictures/green-breakfast-smoothie.png" alt="green-breakfast-smoothie">
         <h3>Ingredients</h3>
             <p>Below is a list of required ingredients:</p>
-            <ul>
-                <li>1 cup almond milk (or more if needed to blend)</li>
-                <li>1 tbsp chia seeds</li>
-                <li>1 cup spinach (not packed down)</li>
-                <li>2 bananas, frozen</li>
-                <li>1 cup mango (fresh or frozen)</li>
+            <ul style="list-style: none;">
+                <li><input type="checkbox" id="gbs-Unsweetened oat milk 1 cup" />Unsweetened oat milk 1 cup</li>
+                <li><input type="checkbox" id="gbs-Chia seeds 1 tbsp" />Chia seeds 1 tbsp</li>
+                <li><input type="checkbox" id="gbs-Baby spinach 1 cup" />Baby spinach 1 cup</li>
+                <li><input type="checkbox" id="gbs-Banana" />Banana</li>
+                <li><input type="checkbox" id="gbs-Mango 1 cup" />Mango 1 cup</li>
             </ul>
+            <input type="button" value="Save" onclick="save();" />
+            <script>
+                window.onload= function(){
+                    var list = document.querySelectorAll(`[type*="checkbox"]`);
+                            list.forEach( el => {
+                                var checked = JSON.parse(localStorage.getItem(el.id));
+                                 document.getElementById(el.id).checked = checked;
+                            });
+                        }
+                save = function(){
+                    var list = document.querySelectorAll(`[type*="checkbox"]`);
+                    list.forEach( el => {
+                        localStorage.setItem(el.id, el.checked);
+                        console.log(el.id,el.checked);
+                    })
+                
+                }
+            </script>
         <h3>How to make!</h3>
-            <p>Place all ingredients in a blender; process until smooth.</p>
+        <ol>
+            <li><input type="checkbox">Place all ingredients in a blender; process until smooth.</li>
+        </ol>
+        <form action="../index.html">
+            <input type="submit" value="Home Page" />
+        </form>
     </div>
