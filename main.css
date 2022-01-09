@@ -21,8 +21,22 @@
     color: var(--fontColor);
     font-family: helvetica;
   }
-  body {
+
+h1 {
+    font-size: 3vw;
+}
+
+h2 {
+    font-size: 2vw;
+}
+
+h3 {
+    font-size: 1.5vw;
+}
+
+body {
       background: var(--bg);
+
   }
 
 ul {
@@ -48,9 +62,13 @@ li {
     display: grid;
 }
 
-.column {
+.col {
   float: left;
-  width: 30%;
+  padding-right: 10px;
+  padding-left: 10px;
+  width: 25%;
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
 /* Clear floats after the columns */
@@ -71,7 +89,15 @@ img {
   /* IE6-9 */
   -webkit-filter: none;
   /* Google Chrome & Safari 6+ */
+  width: 100%;
+  height: auto;
 }
 img:hover {
   filter: blur(4px);
+}
+
+
+
+.container {
+    flex-wrap: wrap;
 }
