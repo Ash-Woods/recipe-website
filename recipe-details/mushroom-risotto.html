@@ -9,13 +9,49 @@
         <img src="../recipe-pictures/mushroom-risotto.jpg" alt="mushroom-risotto">
         <h3>Ingredients</h3>
             <p>Below is a list of required ingredients:</p>
-            <ul>
-                <li>1 cup almond milk (or more if needed to blend)</li>
-                <li>1 tbsp chia seeds</li>
-                <li>1 cup spinach (not packed down)</li>
-                <li>2 bananas, frozen</li>
-                <li>1 cup mango (fresh or frozen)</li>
+            <ul style="list-style: none;">
+                <li><input type="checkbox" id="mr-Mushroom porcini dried 10g" />Mushroom porcini dried 10g</li>
+                <li><input type="checkbox" id="mr-Olive oil 3 tbsp" />Olive oil 3 tbsp</li>
+                <li><input type="checkbox" id="mr-Shallots 2" />Shallots 2</li>
+                <li><input type="checkbox" id="mr-Garlic clove 3" />Garlic clove 3</li>
+                <li><input type="checkbox" id="mr-Rice arborio 300g" />Rice arborio 300g</li>
+                <li><input type="checkbox" id="mr-Wine white 3/4 cup" />Wine white 3/4 cup</li>
+                <li><input type="checkbox" id="mr-Mushroom chestnut 350g" />Mushroom chestnut 350g</li>
+                <li><input type="checkbox" id="mr-Sea salt 1 tsp" />Sea salt 1 tsp</li>
+                <li><input type="checkbox" id="mr-Pepper black ground 1/4" />Pepper black ground 1/4</li>
+                <li><input type="checkbox" id="mr-Parsley 2 tbsp" />Parsley 2 tbsp</li>
             </ul>
+            <input type="button" value="Save" onclick="save();" />
+            <script>
+                window.onload= function(){
+                    var list = document.querySelectorAll(`[type*="checkbox"]`);
+                            list.forEach( el => {
+                                var checked = JSON.parse(localStorage.getItem(el.id));
+                                 document.getElementById(el.id).checked = checked;
+                            });
+                        }
+                save = function(){
+                    var list = document.querySelectorAll(`[type*="checkbox"]`);
+                    list.forEach( el => {
+                        localStorage.setItem(el.id, el.checked);
+                        console.log(el.id,el.checked);
+                    })
+                
+                }
+            </script>
         <h3>How to make!</h3>
-            <p>Place all ingredients in a blender; process until smooth.</p>
+        <ol>
+            <li><input type="checkbox">Put the porcini mushrooms into a smallbowl, pour over 1 cup of boiling water, and set aside.</li>
+            <li><input type="checkbox">Heat the oil in a wide, tall-sided frying pan or casserole over a medium heat. Add the shallots and garlic to the pan and saute for 10 minutes. Stir the rice in well and cook gently for 5 minutes.</li>
+            <li><input type="checkbox">Strain the soaked porcini into a small pan, reserving the soaking liquid, and add the strained porcini to the rice mixture.</li>
+            <li><input type="checkbox">Pour the wine into the porcini soaking liquid, place over a medium heat and bring to a oil, then turn down to a very low simmer.</li>
+            <li><input type="checkbox">Ladle 1 1/4 cups of the hot wine and stock into the rice. Cook, stirring constantly, until the rice has absorbed most of the liquid. Ladle another 1 1/4 cups of the hot wine and stock into the rice and keep stirring until it has been absorbed.</li>
+            <li><input type="checkbox">Add the chestnut mushrooms to the rice, then ladle in 1 1/4 more wine/stock, stirring until absorbed, until there's no stock left, and the riceis plump and cooked through. This will take about 15 minutes, but do test it as the rice can vary. Meanwhile, warm four wide serving bowls.</li>
+            <li><input type="checkbox">Stir the salt and ground black pepper into the risotto along with most of the parsley. Leave to rest of a couple of minutes. Ladle the risotto into the warm bowls, sprinkle the parsley.</li>
+        </ol>
+        <h3>Tip</h3>
+        <p>pending.</p>
+        <form action="../index.html">
+            <input type="submit" value="Home Page" />
+        </form>
     </div>

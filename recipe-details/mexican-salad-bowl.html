@@ -9,18 +9,59 @@
         <img src="../recipe-pictures/mexican-salad-bowl.jpg" alt="mexican-salad-bowl">
         <h3>Ingredients</h3>
             <p>Below is a list of required ingredients:</p>
-            <ul>
-                <li>1 cup almond milk (or more if needed to blend)</li>
-                <li>1 tbsp chia seeds</li>
-                <li>1 cup spinach (not packed down)</li>
-                <li>2 bananas, frozen</li>
-                <li>1 cup mango (fresh or frozen)</li>
+            <ul style="list-style: none;">
+                <li><input type="checkbox" id="msb-Rice brown 1/2" />Rice brown 1/2</li>
+                <li><input type="checkbox" id="msb-Black bean 1 400ml can" />Black bean 1 400ml can</li>
+                <li><input type="checkbox" id="msb-Sea salt 1/2 tsp" />Sea salt 1/2 tsp</li>
+                <li><input type="checkbox" id="msb-Onion powder 1/2 tsp" />Onion powder 1/2 tsp</li>
+                <li><input type="checkbox" id="msb-Cumin ground 1/2 tsp" />Cumin ground 1/2 tsp</li>
+                <li><input type="checkbox" id="msb-Chilli powder 1/4 tsp" />Chilli powder 1/4 tsp</li>
+                <li><input type="checkbox" id="msb-Corn cob 1" />Corn cob 1</li>
+                <li><input type="checkbox" id="msb-Avocado" />Avocado</li>
+                <li><input type="checkbox" id="msb-Lime 1 whole" />Lime 1 whole</li>
+                <li><input type="checkbox" id="msb-Lettuce cos 2" />Lettuce cos 2</li>
+                <li><input type="checkbox" id="msb-Tomato" />Tomato</li>
+                <li><input type="checkbox" id="msb-Mango" />Mango</li>
+                <li><input type="checkbox" id="msb-Coriander 50g" />Coriander 50g</li>
+                <li><input type="checkbox" id="msb-Jalapeno" />Jalapeno</li>
             </ul>
+                <p><b>Lime and Jalapeno Dressing</b>></p>
+                <ul style="list-style: none;">
+                    <li><input type="checkbox" id="msb-Lime 2 whole" />Lime 2 whole</li>
+                    <li><input type="checkbox" id="msb-Jalapeno" />Jalapeno</li>
+                    <li><input type="checkbox" id="msb-Apple cider vinegar 2 tbsp" />Apple cider vinegar 2 tbsp</li>
+                    <li><input type="checkbox" id="msb-Coriander 50g" />Coriander 50g</li>
+                </ul>
+            <input type="button" value="Save" onclick="save();" />
+            <script>
+                window.onload= function(){
+                    var list = document.querySelectorAll(`[type*="checkbox"]`);
+                            list.forEach( el => {
+                                var checked = JSON.parse(localStorage.getItem(el.id));
+                                 document.getElementById(el.id).checked = checked;
+                            });
+                        }
+                save = function(){
+                    var list = document.querySelectorAll(`[type*="checkbox"]`);
+                    list.forEach( el => {
+                        localStorage.setItem(el.id, el.checked);
+                        console.log(el.id,el.checked);
+                    })
+                
+                }
+            </script>
         <h3>How to make!</h3>
-            <p>Place all ingredients in a blender; process until smooth.</p>
+        <ol>
+            <li><input type="checkbox">Cook the rice according to the packet instructions, then remove from the heat and refresh uner cold running water. Drain well, transfer to a bowl and set aside.</li>
+            <li><input type="checkbox">Meanwhile, placethe black beans and  their liquid, 1/2 cup of water, the salt, onion powder, cumin and chilli powder in a saucepan over mediumhigh heat. Simmer for 20-25 minutes or until thickened.</li>
+            <li><input type="checkbox">Dry-fry the corn in a frying pan over high heat for 4 minutes or until cooked trough and charred on all sides.</li>
+            <li><input type="checkbox">In a bowl, roughly mash the avocado with the lime juice and a pinch of salt and petter. Set aside.</li>
+            <li><input type="checkbox">To make the line and jalapeno dressing, place the ingredients and 1 tablespoon  ofwaterinablenderandpulse until smooth. Add the dressing to the rice and stir through.</li>
+            <li><input type="checkbox">To serve, divide the rice,  lettuce, tomato, mango, black beans, corn, mashed avocado, and coriander between two bowls. Scatter over a few chilli flakes and sliced jalapeno and servewith lime wedges.</li>
+        </ol>
+        <h3>Tip</h3>
+        <p>Too much chilli will make the dish very spicy as japapeno are also used.</p>
+        <form action="../index.html">
+            <input type="submit" value="Home Page" />
+        </form>
     </div>
-
-
-
-
-
