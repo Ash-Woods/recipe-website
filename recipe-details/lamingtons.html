@@ -9,14 +9,51 @@
         <img src="../recipe-pictures/lamingtons.jpg" alt="lamingtons">
         <h3>Ingredients</h3>
             <p>Below is a list of required ingredients:</p>
-            <ul>
-                <li>1 cup almond milk (or more if needed to blend)</li>
-                <li>1 tbsp chia seeds</li>
-                <li>1 cup spinach (not packed down)</li>
-                <li>2 bananas, frozen</li>
-                <li>1 cup mango (fresh or frozen)</li>
+            <ul style="list-style: none;">
+                <li><input type="checkbox" id="l-Flaxseed meal 1 tbsp" />Flaxseed meal 1 tbsp</li>
+                <li><input type="checkbox" id="l-Self-raising flour 1 cup" />Self-raising flour 1 cup</li>
+                <li><input type="checkbox" id="l-Plain flour 1 cup" />Plain flour 1 cup</li>
+                <li><input type="checkbox" id="l-Sea salt 1/4 cup" />Sea salt 1/4 cup</li>
+                <li><input type="checkbox" id="l-Baking powder 1 tsp" />Baking powder 1 tsp</li>
+                <li><input type="checkbox" id="l-Maple Syrup 3 tbsp" />Maple Syrup 3 tbsp</li>
+                <li><input type="checkbox" id="l-Olive oil 3 tbsp" />Olive oil 3 tbsp</li>
+                <li><input type="checkbox" id="l-Unsweetened oat milk 1 cup" />Unsweetened oat milk 1 cup</li>
+                <li><input type="checkbox" id="l-Dark chocolate 150g" />Dark chocolate 150g</li>
+                <li><input type="checkbox" id="l-Coconut shredded 60g" />Coconut shredded 60g</li>
             </ul>
+            <input type="button" value="Save" onclick="save();" />
+            <script>
+                window.onload= function(){
+                    var list = document.querySelectorAll(`[type*="checkbox"]`);
+                            list.forEach( el => {
+                                var checked = JSON.parse(localStorage.getItem(el.id));
+                                 document.getElementById(el.id).checked = checked;
+                            });
+                        }
+                save = function(){
+                    var list = document.querySelectorAll(`[type*="checkbox"]`);
+                    list.forEach( el => {
+                        localStorage.setItem(el.id, el.checked);
+                        console.log(el.id,el.checked);
+                    })
+                
+                }
+            </script>
         <h3>How to make!</h3>
-            <p>Place all ingredients in a blender; process until smooth.</p>
+        <ol>
+            <li><input type="checkbox">Pre-heat the oven to 180c fan-forced. Line a 20cm x 15cm baking tin with baking paper.</li>
+            <li><input type="checkbox">Place flaxseed meal and 3 tablespoons of water in a bowl and set aside for 10 minutes.</li>
+            <li><input type="checkbox">Sift the flours, salt and baking powder into a bowl and stir to combine.</li>
+            <li><input type="checkbox">Pour the maple syrup, oil and milk into the flaxseed meal mixture and mix well, then add to the dry ingredients and fold together until just combined to form a smooth batter.</li>
+            <li><input type="checkbox">Transfer the mixture to the prepared tin and bake for 40minutes or until a skewer inserted to the centre of the cake comes out clean. Remove from the oven and set side to cool completely.</li>
+            <li><input type="checkbox">Melt the chocolate in a heatproof bowl set over a saucepan of simmering water (don't let the bowl touch the water or the chocolate will seize). Carefully remove from the heat and set aside.</li>
+            <li><input type="checkbox">Cut the case into eight even-sized pieces to make them square, if you life and place the coconut in a shallow bowl.</li>
+            <li><input type="checkbox">To coat, dip each side into the melt chocolate and allow the excess to drip off. Transfer to the bowl of coconut and gently roll until each lamington is completed coated.</li>
+            <li><input type="checkbox">Store in an airtight container in the fridge for up to 1 week.</li>
+        </ol>
+        <h3>Tip</h3>
+        <p>Avoid overcooking the spaghetti otherwise it will fall apart when serving.</p>
+        <form action="../index.html">
+            <input type="submit" value="Home Page" />
+        </form>
     </div>
-

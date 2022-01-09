@@ -9,15 +9,68 @@
         <img src="../recipe-pictures/hashbrowns-with-turmeric-cashew-sauce.jpg" alt="hashbrowns-with-turmeric-cashew-sauce">
         <h3>Ingredients</h3>
             <p>Below is a list of required ingredients:</p>
-            <ul>
-                <li>1 cup almond milk (or more if needed to blend)</li>
-                <li>1 tbsp chia seeds</li>
-                <li>1 cup spinach (not packed down)</li>
-                <li>2 bananas, frozen</li>
-                <li>1 cup mango (fresh or frozen)</li>
+            <p><b>Main Dish</b></p>
+            <ul style="list-style: none;">
+                <li><input type="checkbox" id="hbts-Potatoes 350g" />Potatoes 350g</li>
+                <li><input type="checkbox" id="hbts-Plain flour 2 tbsp" />Plain flour 2 tbsp</li>
+                <li><input type="checkbox" id="hbts-Rosemary chopped 2 tbsp" />Rosemary chopped 2 tbsp</li>
+                <li><input type="checkbox" id="hbts-Avocado oil 1 tbsp" />Avocado oil 1 tbsp</li>
             </ul>
+            <p><b>Pumpkin and Chickpea Topping</b></p>
+            <ul style="list-style: none;">
+                <li><input type="checkbox" id="hbts-Pumpkin 150g" />Pumpkin 150g</li>
+                <li><input type="checkbox" id="hbts-Chickpeas 1/2 cup" />Chickpeas 1/2 cup</li>
+                <li><input type="checkbox" id="hbts-Maple Syrup 2 tsp" />Maple Syrup 2 tsp</li>
+                <li><input type="checkbox" id="hbts-Olive Oil 2 tsp" />Olive Oil 2 tsp</li>
+            </ul>
+            <p><b>Tumeric-Cashew Sauce</b></p>
+            <ul style="list-style: none;">
+                <li><input type="checkbox" id="hbts-Cashews 50g" />Cashews 50g</li>
+                <li><input type="checkbox" id="hbts-Tumeric ground 1/4" />Tumeric ground 1/4</li>
+                <li><input type="checkbox" id="hbts-Lemon 1 whole" />Lemon 1 whole</li>
+                <li><input type="checkbox" id="hbts-Olive oil 1 tsp" />Olive oil 1 tsp</li>
+                <li><input type="checkbox" id="hbts-Apple cider vinegar 1 tsp" />Apple cider vinegar 1 tsp</li>
+            </ul>
+            <p><b>To Serve</b></p>
+            <ul style="list-style: none;">
+                <li><input type="checkbox" id="hbts-Avocado" />Avocado</li>
+                <li><input type="checkbox" id="hbts-Dill 50g" />Dill 50g</li>
+                <li><input type="checkbox" id="hbts-Hemp seeds 1 tbsp" />Hemp seeds 1 tbsp</li>
+                </ul>
+    <input type="button" value="Save" onclick="save();" />
+    <script>
+                window.onload= function(){
+                        var list = document.querySelectorAll(`[type*="checkbox"]`);
+                                list.forEach( el => {
+                                    var checked = JSON.parse(localStorage.getItem(el.id));
+                                     document.getElementById(el.id).checked = checked;
+                                });
+                            }
+                    save = function(){
+                        var list = document.querySelectorAll(`[type*="checkbox"]`);
+                        list.forEach( el => {
+                            localStorage.setItem(el.id, el.checked);
+                            console.log(el.id,el.checked);
+                        })
+                    
+                    }
+                </script>
         <h3>How to make!</h3>
-            <p>Place all ingredients in a blender; process until smooth.</p>
+        <ol>
+            <li><input type="checkbox">Pre-heat oven to 180c fan-forced.</li>
+            <li><input type="checkbox">Combine the ingredients for the pumpkin and chickpea topping in a baking dish and bake for 35minutes or until golden and crsip. Set aside.</li>
+            <li><input type="checkbox">'Meanwhile', grate the potatoes into a colander. Rinse with water, then squeeze out as much liquid as possible. Transfer to a plate lined with paper towel or a clean tea towel to completely dry.</li>
+            <li><input type="checkbox">To make the turmeric-cashew sauce, place all the ingredients and 3 tablespoons of water in a blender and blend until smooth. Check the seasoning and add mroe salt, if desired. Set aside.</li>
+            <li><input type="checkbox">Transfer the potato to a large bowl and stir through the flour, herbs and salt.</li>
+            <li><input type="checkbox">Heat the oil in large frying pan over high heat and spoon in 1/3 cup of the potato mixture to make each hashbrown.</li>
+            <li><input type="checkbox">Spread each hashbrown out to firm a 1cm -thick circle. Fry on each side for 2-3 minutes or until golden brown and crisp. Then transfer to a plate lined with paper towel to soeak up excess oil.</li>
+            <li><input type="checkbox">Place a hashbrown on each plate and top with the pumpkin and chickpea mixture. Position the remaining hashbrowns on top and spoon the turmeric-cashew sauce around the plate.</li>
+        </ol>
+        <h3>Tip</h3>
+        <p>Make sure you check on the items in the oven while cooking the potatoes, otherwise they may burn quickly.</p>
+        <form action="../index.html">
+            <input type="submit" value="Home Page" />
+        </form>
     </div>
 
 
